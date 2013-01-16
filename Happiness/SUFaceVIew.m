@@ -10,6 +10,27 @@
 
 @implementation SUFaceView
 
+#define DEFAULT_SCALE 0.90
+
+@synthesize scale = _scale;
+
+- (CGFloat)scale
+{
+    if(_scale)
+        return _scale;
+    else
+        return DEFAULT_SCALE;
+}
+
+- (void)setScale:(CGFloat)scale
+{
+    if(scale)
+    {
+        _scale = scale;
+        [self setNeedsDisplay];
+    }
+}
+
 - (void)setup
 {
     self.contentMode = UIViewContentModeRedraw;
@@ -41,7 +62,6 @@
     UIGraphicsPopContext();
 }
 
-#define DEFAULT_SCALE 0.90
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -56,7 +76,7 @@
     CGFloat size = self.bounds.size.width / 2;
     if(self.bounds.size.width > self.bounds.size.height)
         size = self.bounds.size.height / 2;
-    size *= DEFAULT_SCALE;
+    size *= self.scale;
     
     CGContextSetLineWidth(context, 5.0);
     [[UIColor blueColor] setStroke];
@@ -66,6 +86,16 @@
     // draw eyse (2 circles)
     // no nose
     // draw mouth
+}
+
+- (void)pinch:(UIPinchGestureRecognizer *)gesture
+{
+    if(gesture.state == UIGestureRecognizerStateChanged ||
+       gesture.state == UIGestureRecognizerStateEnded)
+    {
+        self.scale *= gesture.scale;
+        gesture.scale = 1;
+    }
 }
 
 @end
