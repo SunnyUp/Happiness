@@ -10,4 +10,6 @@
 
 @interface SUViewController : UIViewController
 
+@property (nonatomic) int happiness;    //0 means sad, and 100 means very happy
+
 @end

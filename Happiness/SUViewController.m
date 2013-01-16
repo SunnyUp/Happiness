@@ -7,23 +7,32 @@
 //
 
 #import "SUViewController.h"
+#import "SUFaceView.h"
 
 @interface SUViewController ()
-
+@property (nonatomic, weak) IBOutlet SUFaceView *faceView;
 @end
 
 @implementation SUViewController
 
-- (void)viewDidLoad
+@synthesize happiness = _happiness;
+@synthesize faceView = _faceView;
+
+- (void)setHappiness:(int)happiness
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    _happiness = happiness;
+    
+    [self.faceView setNeedsDisplay];
 }
 
-- (void)didReceiveMemoryWarning
+- (NSUInteger)supportedInterfaceOrientations
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    return UIInterfaceOrientationMaskAllButUpsideDown;
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
+{
+    return (toInterfaceOrientation != UIInterfaceOrientationMaskPortraitUpsideDown);
 }
 
 @end

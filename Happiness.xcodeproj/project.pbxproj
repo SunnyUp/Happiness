@@ -18,6 +18,7 @@
 		4834822016A5C6BB00C02B12 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4834821F16A5C6BB00C02B12 /* Default-568h@2x.png */; };
 		4834822316A5C6BB00C02B12 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4834822116A5C6BB00C02B12 /* MainStoryboard.storyboard */; };
 		4834822616A5C6BB00C02B12 /* SUViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4834822516A5C6BB00C02B12 /* SUViewController.m */; };
+		4834823916A5CDD000C02B12 /* SUFaceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4834823816A5CDD000C02B12 /* SUFaceView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,8 @@
 		4834822216A5C6BB00C02B12 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		4834822416A5C6BB00C02B12 /* SUViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SUViewController.h; sourceTree = "<group>"; };
 		4834822516A5C6BB00C02B12 /* SUViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SUViewController.m; sourceTree = "<group>"; };
+		4834823716A5CDD000C02B12 /* SUFaceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SUFaceView.h; sourceTree = "<group>"; };
+		4834823816A5CDD000C02B12 /* SUFaceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SUFaceView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +91,8 @@
 				4834822116A5C6BB00C02B12 /* MainStoryboard.storyboard */,
 				4834822416A5C6BB00C02B12 /* SUViewController.h */,
 				4834822516A5C6BB00C02B12 /* SUViewController.m */,
+				4834823716A5CDD000C02B12 /* SUFaceView.h */,
+				4834823816A5CDD000C02B12 /* SUFaceView.m */,
 				4834821016A5C6BB00C02B12 /* Supporting Files */,
 			);
 			path = Happiness;
@@ -177,6 +182,7 @@
 				4834821616A5C6BB00C02B12 /* main.m in Sources */,
 				4834821A16A5C6BB00C02B12 /* SUAppDelegate.m in Sources */,
 				4834822616A5C6BB00C02B12 /* SUViewController.m in Sources */,
+				4834823916A5CDD000C02B12 /* SUFaceView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +299,7 @@
 				4834822B16A5C6BB00C02B12 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
