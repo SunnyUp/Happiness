@@ -9,8 +9,8 @@
 #import "SUViewController.h"
 #import "SUFaceView.h"
 
-@interface SUViewController ()
-@property (nonatomic, weak) IBOutlet SUFaceView *faceView;
+@interface SUViewController () <SUFaceViewDataSource>
+@property (nonatomic, weak) IBOutlet SUFaceView *faceView; 
 @end
 
 @implementation SUViewController
@@ -29,8 +29,10 @@
 {
     _faceView = faceView;
     
-    [self.faceView addGestureRecognizer:
-     [[UIPinchGestureRecognizer alloc] initWithTarget:self.faceView action:@selector(pinch:)]];
+    [self.faceView addGestureRecognizer:[[UIPinchGestureRecognizer alloc] initWithTarget:self.faceView action:@selector(pinch:)]];
+    
+    self.faceView.dataSource = self;
+    [self.faceView addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(changeHappiness:)]];
 }
 
 - (NSUInteger)supportedInterfaceOrientations
@@ -41,6 +43,21 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
 {
     return (toInterfaceOrientation != UIInterfaceOrientationMaskPortraitUpsideDown);
+}
+
+- (float)smileForFaceView:(SUFaceView *)sender
+{
+    return (self.happiness - 50) / 50.0; 
+}
+
+- (void)changeHappiness:(UIPanGestureRecognizer *)gesture
+{
+    if(gesture.state == UIGestureRecognizerStateChanged || gesture.state == UIGestureRecognizerStateEnded)
+    {
+        CGPoint transilation = [gesture translationInView:self.faceView];
+        self.happiness -= transilation.y/3.5;
+        [gesture setTranslation:CGPointZero inView:self.faceView];
+    }
 }
 
 @end
